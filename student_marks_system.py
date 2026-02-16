@@ -1,40 +1,48 @@
-# Student Marks Management System
+# Improved Student Marks Management System
 
-print("----- Student Marks Management System -----")
+while True:
+    print("\n----- Student Marks Management System -----")
 
-# Taking student details
-name = input("Enter Student Name: ")
-roll_no = input("Enter Roll Number: ")
+    name = input("Enter Student Name: ")
+    roll_no = input("Enter Roll Number: ")
 
-# Taking marks for 5 subjects
-subject1 = float(input("Enter marks for Subject 1: "))
-subject2 = float(input("Enter marks for Subject 2: "))
-subject3 = float(input("Enter marks for Subject 3: "))
-subject4 = float(input("Enter marks for Subject 4: "))
-subject5 = float(input("Enter marks for Subject 5: "))
+    marks = []
+    for i in range(1, 6):
+        while True:
+            try:
+                mark = float(input(f"Enter marks for Subject {i}: "))
+                if 0 <= mark <= 100:
+                    marks.append(mark)
+                    break
+                else:
+                    print("Marks must be between 0 and 100.")
+            except ValueError:
+                print("Invalid input! Please enter numeric value.")
 
-# Calculating total and percentage
-total = subject1 + subject2 + subject3 + subject4 + subject5
-percentage = total / 5
+    total = sum(marks)
+    percentage = total / 5
 
-# Determining grade
-if percentage >= 90:
-    grade = "A+"
-elif percentage >= 75:
-    grade = "A"
-elif percentage >= 60:
-    grade = "B"
-elif percentage >= 50:
-    grade = "C"
-elif percentage >= 40:
-    grade = "D"
-else:
-    grade = "Fail"
+    if percentage >= 90:
+        grade = "A+"
+    elif percentage >= 75:
+        grade = "A"
+    elif percentage >= 60:
+        grade = "B"
+    elif percentage >= 50:
+        grade = "C"
+    elif percentage >= 40:
+        grade = "D"
+    else:
+        grade = "Fail"
 
-# Displaying result
-print("\n----- Result -----")
-print("Student Name:", name)
-print("Roll Number:", roll_no)
-print("Total Marks:", total)
-print("Percentage:", percentage)
-print("Grade:", grade)
+    print("\n----- Result -----")
+    print("Student Name:", name)
+    print("Roll Number:", roll_no)
+    print("Total Marks:", total)
+    print("Percentage:", percentage)
+    print("Grade:", grade)
+
+    again = input("\nDo you want to enter another student? (yes/no): ")
+    if again.lower() != "yes":
+        print("Program Ended.")
+        break
