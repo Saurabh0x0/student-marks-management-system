@@ -9,6 +9,9 @@ The program calculates total marks, percentage, and assigns grades based on perf
 - Takes marks for 5 subjects
 - Calculates total and percentage
 - Assigns grade using conditional statements
+- Input validation (0–100 range)
+- Error handling using try-except
+- Loop to enter multiple students
 
 ## 💻 Technologies Used
 - Python
